@@ -110,6 +110,7 @@ const bottomButtons = document.querySelectorAll(".btn");
 
 document.addEventListener("keydown", e => {
   bottomButtons[0].textContent += ` ${e.code}`;
+  bottomButtons[2].textContent += ` ${e.code}`;
 });
 
 // keyup - on second 'Sign Me Up!' Button
