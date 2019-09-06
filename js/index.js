@@ -59,20 +59,8 @@ funBusTitle.onwheel = e => {
   funBusTitle.style.transform = `scale(${scale})`;
 };
 
-// Drag and Drop - Sign Me Up Buttons
-
-// let draggable = document.querySelectorAll(".btn");
-// let dragzones = document.querySelectorAll(".destination");
-
-// let dragzone1 = document.createElement("div");
-// let dragzone2 = document.createElement("div");
-// let dragzone3 = document.createElement("div");
-
-// dragzones[0].appendChild(dragzone1);
-// dragzones[1].appendChild(dragzone2);
-// dragzones[2].appendChild(dragzone3);
-
 // Bubbling and Stop Propagation
+
 const bottomTextContainer = document.querySelector(".content-destination");
 
 bottomTextContainer.addEventListener("click", e => {
