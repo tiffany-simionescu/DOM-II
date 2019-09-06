@@ -1,12 +1,14 @@
 // Prevents page from refreshing when you click a nav link
 
-// let allLinks = document.querySelectorAll("a");
+let allLinks = document.querySelectorAll("a");
 
-// allLinks.addEventListener("click", event => {
-//   event.preventDefault();
-// });
+for (let i = 0; i < allLinks.length; i++) {
+  allLinks[i].addEventListener("click", event => {
+    event.preventDefault();
+  });
+}
 
-// Images - mouseover - change image
+// Images - mouseover / mouseout - change image
 
 let contentImages = document.querySelectorAll(".img-content img");
 
@@ -70,9 +72,23 @@ funBusTitle.onwheel = e => {
 // dragzones[1].appendChild(dragzone2);
 // dragzones[2].appendChild(dragzone3);
 
+// Bubbling and Stop Propagation
+const bottomTextContainer = document.querySelector(".content-destination");
+
+bottomTextContainer.addEventListener("click", e => {
+  e.target.style.backgroundColor = "lightgrey";
+});
+
+const bottomTextH2 = document.querySelector(".content-destination h2");
+
+bottomTextH2.addEventListener("click", e => {
+  e.target.style.color = "purple";
+  e.stopPropagation();
+});
+
 // Double Click
 
-let bottomImage = document.querySelector(".content-destination img");
+const bottomImage = document.querySelector(".content-destination img");
 
 bottomImage.addEventListener("dblclick", e => {
   e.target.setAttribute("src", "/img/destination2.jpg");
@@ -83,3 +99,46 @@ bottomImage.addEventListener("click", e => {
   e.target.setAttribute("src", "/img/destination.jpg");
   e.target.setAttribute("alt", "Second slide");
 });
+
+// Load
+
+window.addEventListener("load", e => {
+  alert("Welcome to Fun Bus!");
+});
+
+// resize
+
+const heightOutput = document.querySelector("#height");
+const widthOutput = document.querySelector("#width");
+
+window.addEventListener("resize", e => {
+  heightOutput.textContent = window.innerHeight;
+  widthOutput.textContent = window.innerWidth;
+});
+
+// keydown - on first 'Sign Me Up!' Button
+
+const bottomButtons = document.querySelectorAll(".btn");
+
+document.addEventListener("keydown", e => {
+  bottomButtons[0].textContent += ` ${e.code}`;
+});
+
+// keyup - on second 'Sign Me Up!' Button
+
+document.addEventListener("keyup", e => {
+  bottomButtons[1].textContent += ` ${e.code}`;
+});
+
+// focus and blur - on nav links
+const navLinks = document.querySelectorAll("a");
+
+for (let i = 0; i < navLinks.length; i++) {
+  navLinks[i].addEventListener("focus", event => {
+    event.target.style.color = "pink";
+  });
+
+  navLinks[i].addEventListener("blur", event => {
+    event.target.style.color = "";
+  });
+}
